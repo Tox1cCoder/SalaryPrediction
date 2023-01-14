@@ -6,7 +6,7 @@ import os
 
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-path = dir_path + "\data\survey_results_public.csv"
+path = dir_path + "/data/survey_results_public.csv"
 
 def shorten_categories(categories, cutoff):
     categorical_map = {}
