@@ -2,7 +2,11 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import sklearn
+import os 
 
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+path = dir_path + "\data\survey_results_public.csv"
 
 def shorten_categories(categories, cutoff):
     categorical_map = {}
@@ -34,7 +38,7 @@ def clean_education(x):
 
 @st.cache
 def load_data():
-    df = pd.read_csv("survey_results_public.csv")
+    df = pd.read_csv(path)
     df = df[["Country", "EdLevel", "YearsCodePro", "Employment", "ConvertedCompYearly"]]
     df = df[df["ConvertedCompYearly"].notnull()]
     df = df.dropna()
